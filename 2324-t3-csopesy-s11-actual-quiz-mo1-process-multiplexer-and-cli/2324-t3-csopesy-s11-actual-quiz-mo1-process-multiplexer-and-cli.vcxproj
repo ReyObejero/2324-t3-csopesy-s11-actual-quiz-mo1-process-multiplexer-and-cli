@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Config.h" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="ConsoleManager.cpp" />
     <ClCompile Include="main.cpp" />

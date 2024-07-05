@@ -8,7 +8,9 @@
 ConsoleManager::ConsoleManager() : currentConsole(nullptr), previousConsole(nullptr), console_handle_(GetStdHandle(STD_OUTPUT_HANDLE)) {
     // Create a Console object for the main menu
     std::shared_ptr<Console> mainConsole(new Console("MAIN_MENU", 1, 1, 0));
+    std::shared_ptr<Console> marqueeConsole(new Console("MARQUEE_CONSOLE", 1, 1, 1));
     consoles.push_back(mainConsole);
+    consoles.push_back(marqueeConsole);
     currentConsole = mainConsole;
     GetConsoleScreenBufferInfo(console_handle_, &csbi_info_);
 }

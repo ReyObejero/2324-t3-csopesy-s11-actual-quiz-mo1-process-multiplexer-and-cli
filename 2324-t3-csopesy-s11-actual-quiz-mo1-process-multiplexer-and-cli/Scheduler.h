@@ -9,7 +9,22 @@
 #include <condition_variable>
 #include <list>
 
-class FCFS_Scheduler {
+class Scheduler {
+public:
+    enum SchedulingAlgorithm {
+        fcfs,
+        sjf,
+        rr,
+    };
+
+    Scheduler(int cores);
+    ~Scheduler();
+
+    void add_process(Process* proc);
+    void start();
+    void stop();
+    void screen_ls();
+
 private:
     std::queue<Process*> process_queue;
     std::vector<std::thread> cpu_threads;
@@ -21,13 +36,4 @@ private:
     std::list<Process*> finished_processes;
 
     void cpu_worker(int core_id);
-
-public:
-    FCFS_Scheduler(int cores);
-    ~FCFS_Scheduler();
-
-    void add_process(Process* proc);
-    void start();
-    void stop();
-    void screen_ls();
 };

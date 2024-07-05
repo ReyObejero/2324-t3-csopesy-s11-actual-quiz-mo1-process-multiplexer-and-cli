@@ -1,4 +1,5 @@
 #include "Commands.h"
+#include "Config.h"
 #include "ConsoleManager.h"
 #include "MarqueeConsole.h"
 #include "Scheduler.h"
@@ -27,6 +28,21 @@ void clearScreen() {
 }
 
 bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
+    if (command != "initialize" && command != "exit") {
+        if (Config::GetConfigParameters().num_cpu == NULL ||
+            Config::GetConfigParameters().scheduler == NULL ||
+            Config::GetConfigParameters().quantum_cycles == NULL ||
+            Config::GetConfigParameters().preemptive == NULL ||
+            Config::GetConfigParameters().batch_process_freq == NULL ||
+            Config::GetConfigParameters().min_ins == NULL ||
+            Config::GetConfigParameters().max_ins == NULL ||
+            Config::GetConfigParameters().delay_per_exec == NULL) {
+            std::cout << "Initialize the program with command \"initialize\"" << std::endl;
+
+            return true;
+        }
+    }
+
     std::vector<std::shared_ptr<Console>> consoles = consoleManager.getConsoles();
     // Handle user input
 
@@ -132,7 +148,7 @@ bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
     }
     else if (command == "initialilze") {}
     else if (command == "marquee") {
-        MarqueeConsole marqueeConsole(50);
+        MarqueeConsole marqueeConsole(10);
         marqueeConsole.Run();
     }
     else if (command == "report-util") {}
@@ -154,7 +170,7 @@ bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
         const int num_processes = 10;
         const int commands_per_process = 100;
         const int num_cores = 4;
-        FCFS_Scheduler scheduler(num_cores);
+        Scheduler scheduler(num_cores);
         scheduler.start();
 
         for (int i = 1; i <= num_processes; ++i) {
@@ -177,6 +193,9 @@ bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
                 break;
             }
         }
+    }
+    else if (command == "initialize") {
+        Config::Initialize();
     }
     else {
         std::cout << "Unknown command: " << command << std::endl;

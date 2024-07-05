@@ -5,27 +5,27 @@
 #include <iomanip>
 #include <sstream> // Ensure this header is included
 
-FCFS_Scheduler::FCFS_Scheduler(int cores) : num_cores(cores), running(true) {}
+Scheduler::Scheduler(int cores) : num_cores(cores), running(true) {}
 
-FCFS_Scheduler::~FCFS_Scheduler() {
+Scheduler ::~Scheduler() {
     stop();
 }
 
-void FCFS_Scheduler::add_process(Process* proc) {
+void Scheduler::add_process(Process* proc) {
     std::lock_guard<std::mutex> lock(mtx);
     process_queue.push(proc);
     cv.notify_one();
     std::cout << "Added process " << proc->name << " to the queue.\n";
 }
 
-void FCFS_Scheduler::start() {
+void Scheduler::start() {
     for (int i = 0; i < num_cores; ++i) {
-        cpu_threads.emplace_back(&FCFS_Scheduler::cpu_worker, this, i);
+        cpu_threads.emplace_back(&Scheduler::cpu_worker, this, i);
     }
     std::cout << "Scheduler started with " << num_cores << " cores.\n";
 }
 
-void FCFS_Scheduler::stop() {
+void Scheduler::stop() {
     running = false;
     cv.notify_all();
     for (auto& thread : cpu_threads) {
@@ -36,7 +36,7 @@ void FCFS_Scheduler::stop() {
     std::cout << "Scheduler stopped.\n";
 }
 /**/
-void FCFS_Scheduler::cpu_worker(int core_id) {
+void Scheduler::cpu_worker(int core_id) {
     while (running) {
         Process* proc = nullptr;
 
@@ -72,7 +72,7 @@ void FCFS_Scheduler::cpu_worker(int core_id) {
         }
     }
 }
-void FCFS_Scheduler::screen_ls() {
+void Scheduler::screen_ls() {
     std::lock_guard<std::mutex> lock(mtx);
     std::cout << "----------------\nRunning processes:\n";
 

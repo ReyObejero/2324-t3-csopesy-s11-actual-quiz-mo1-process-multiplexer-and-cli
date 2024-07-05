@@ -36,6 +36,12 @@
     <ClCompile Include="Scheduler.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Config.h">
+      <Filter>Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands.h">
