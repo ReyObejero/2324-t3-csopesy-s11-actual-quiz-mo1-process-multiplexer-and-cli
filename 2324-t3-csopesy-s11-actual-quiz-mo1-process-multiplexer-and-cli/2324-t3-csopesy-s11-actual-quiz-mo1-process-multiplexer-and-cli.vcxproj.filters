@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{163b9fd3-ae42-4327-8ab4-2042da6ea150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{bc6928a8-ae42-4d04-820c-134dd9dc7920}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Commands.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Thread.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleManager.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="MarqueeConsole.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="MarqueeWorkerThread.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Commands.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleManager.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Thread.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MarqueeConsole.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MarqueeWorkerThread.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
