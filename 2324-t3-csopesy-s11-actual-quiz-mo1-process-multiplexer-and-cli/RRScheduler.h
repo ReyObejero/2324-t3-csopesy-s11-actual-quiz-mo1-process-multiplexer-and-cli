@@ -37,4 +37,5 @@ public:
     bool isValidProcessName(const std::string& process_name);
     void ReportUtil();
     float GetCpuUtilization();
+    void print_CPU_UTIL();
 };

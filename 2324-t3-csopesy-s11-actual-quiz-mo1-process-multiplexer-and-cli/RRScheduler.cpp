@@ -69,7 +69,7 @@ void RR_Scheduler::cpu_worker(int core_id) {
               
             }
 
-            std::this_thread::sleep_for(std::chrono::milliseconds((int)(Config::GetConfigParameters().delay_per_exec * 1000))); // Simulated command execution time change this to delays per exec
+            std::this_thread::sleep_for(std::chrono::milliseconds((int)(Config::GetConfigParameters().delay_per_exec * 100))); // Simulated command execution time change this to delays per exec
            // commands_to_execute-=5;
 
             if (executed_in_quantum >= time_quantum) {
@@ -95,8 +95,10 @@ void RR_Scheduler::cpu_worker(int core_id) {
 }
 void RR_Scheduler::screen_ls() {
     std::lock_guard<std::mutex> lock(mtx);
+    print_CPU_UTIL();
     print_running_processes();
     print_finished_processes();
+    
 }
 
 void RR_Scheduler::SetCpuCore(int cpu_core) {
@@ -190,12 +192,13 @@ void RR_Scheduler::ReportUtil() {
 
 
 void RR_Scheduler::print_running_processes() {
-   
+    
     std::cout << "Running processes:\n";
     for (auto& proc : running_processes) {
         std::cout << proc->name << " (" << proc->get_start_time() << ") Core: "
             << (proc->core_id == -1 ? "N/A" : std::to_string(proc->core_id))
             << " " << proc->executed_commands << " / " << proc->total_commands << "\n";
+       
     }
     std::cout << "----------------\n";
 }
@@ -208,6 +211,30 @@ void RR_Scheduler::print_finished_processes() {
     }
     std::cout << "----------------\n";
 }
+void RR_Scheduler::print_CPU_UTIL() {
+    int numOfRunningProcess = 0;
+    int numOfFinishedProcess = 0;
+    int cpuUtilization = 0;
+    for (auto& proc : running_processes) {
+        numOfRunningProcess++;
+    }
+    for (auto& proc : finished_processes) {
+        numOfFinishedProcess++;
+    }
+    if (numOfRunningProcess == num_cores  ) {
+        cpuUtilization = 100;
+        
+    }
+    else if (numOfRunningProcess == 0) {
+        cpuUtilization = 0;
+    }
+    std::cout << "Cpu Utilization: " << cpuUtilization << "%\n";
+    std::cout << "Cores Used: " << numOfRunningProcess << "\n";
+    std::cout << "Cores Available: " << num_cores-numOfRunningProcess << "\n";
+
+    std::cout << "----------------\n";
+}
+
 
 
 void RR_Scheduler::print_process_details(const std::string& process_name, int screen) {
