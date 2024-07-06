@@ -241,3 +241,29 @@ process1 (07/06/2024 08:02:05PM) Core: 1 70 / 152
 Finished processes:
 ----------------
 
+CPU Utilization: 100%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process2 (07/07/2024 12:25:20AM) Core: 3 70 / 188
+process4 (07/07/2024 12:25:20AM) Core: 1 55 / 152
+process1 (07/07/2024 12:25:20AM) Core: 2 80 / 136
+process12 (07/07/2024 12:25:20AM) Core: 0 5 / 180
+
+Finished processes:
+----------------
+
+CPU Utilization: 100%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/07/2024 12:28:30AM) Core: 1 95 / 120
+process7 (07/07/2024 12:28:30AM) Core: 3 45 / 187
+process15 (07/07/2024 12:28:30AM) Core: 2 10 / 179
+process12 (07/07/2024 12:28:30AM) Core: 0 20 / 183
+
+Finished processes:
+----------------
+

@@ -144,6 +144,23 @@ void SJF_Preemptive_Scheduler::print_CPU_UTIL() {
 
 
 void SJF_Preemptive_Scheduler::ReportUtil() {
+    int numOfRunningProcess = 0;
+    int numOfFinishedProcess = 0;
+    int cpuUtilization = 0;
+    for (auto& proc : running_processes) {
+        numOfRunningProcess++;
+    }
+    for (auto& proc : finished_processes) {
+        numOfFinishedProcess++;
+    }
+    if (numOfRunningProcess == num_cores) {
+        cpuUtilization = 100;
+
+    }
+    else if (numOfRunningProcess == 0) {
+        cpuUtilization = 0;
+    }
+
     std::vector<int> cores_used;
     int total_executed_commands = 0;
     int total_commands = 0;
@@ -168,7 +185,7 @@ void SJF_Preemptive_Scheduler::ReportUtil() {
 
     std::lock_guard<std::mutex> lock(mtx);
     std::ofstream log("csopesy-log.txt", std::ios::app);
-    log << "CPU Utilization: " << "100" << "%" << std::endl;
+    log << "CPU Utilization: " << cpuUtilization << "%" << std::endl;
     log << "Cores Used: " << cores_used.size() << std::endl;
     log << "Cores Available: " << num_cores - cores_used.size() << std::endl;
     log << "----------------\n";
