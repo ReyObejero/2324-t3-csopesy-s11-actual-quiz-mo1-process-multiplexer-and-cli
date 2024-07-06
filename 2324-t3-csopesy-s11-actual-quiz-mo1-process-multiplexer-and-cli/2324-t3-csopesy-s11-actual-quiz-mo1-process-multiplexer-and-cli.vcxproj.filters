@@ -48,6 +48,9 @@
     <ClCompile Include="sjf_scheduler.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="SJF_Preemptive_Scheduler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands.h">
@@ -78,6 +81,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="sjf_scheduler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SJF_Preemptive_Scheduler.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

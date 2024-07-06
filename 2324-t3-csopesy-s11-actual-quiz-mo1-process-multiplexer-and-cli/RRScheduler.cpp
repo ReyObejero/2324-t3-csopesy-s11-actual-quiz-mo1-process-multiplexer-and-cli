@@ -163,6 +163,7 @@ void RR_Scheduler::ReportUtil() {
 
     std::lock_guard<std::mutex> lock(mtx);
     std::ofstream log("csopesy-log.txt", std::ios::app);
+    
     log << "CPU Utilization: " << "100" << "%" << std::endl;
     log << "Cores Used: " << cores_used.size() << std::endl;
     log << "Cores Available: " << num_cores - cores_used.size() << std::endl;

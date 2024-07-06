@@ -8,6 +8,8 @@
 #include "RRScheduler.h"
 #include <random>
 #include "MarqueeConsole.h"
+#include "sjf_scheduler.h"
+#include "SJF_Preemptive_Scheduler.h"
 
 int main() {
     displayHeader();
@@ -20,6 +22,8 @@ int main() {
     // Initialize scheduler
     FCFS_Scheduler fcfs_scheduler(0);
     RR_Scheduler rr_scheduler(0, 0);
+    SJF_Scheduler sjf_scheduler(0);
+    SJF_Preemptive_Scheduler sjf_preemptive_scheduler(0);
 
     // Initialize scheduling test
     std::thread scheduler_thread;
@@ -108,6 +112,36 @@ int main() {
                     console_manager.setCurrentConsole(new_console);
                 }
             }
+
+            if (Config::GetConfigParameters().scheduler == "sjf") {
+                if (Config::GetConfigParameters().preemptive == 0) {
+                    if (sjf_scheduler.isValidProcessName(tokens[2]) == false) {
+                        std::cout << "Process with name \"" + tokens[2] + "\" already exists" << std::endl;
+                    }
+                    else {
+                        Process new_process(tokens[2], dist(gen));
+                        sjf_scheduler.add_process(&new_process);
+                        system("cls");
+                        new_process.displayProcessInfo();
+                        std::shared_ptr<Console> new_console(new Console(new_process.name, new_process.executed_commands, new_process.total_commands, new_process.process_id));
+                        console_manager.setCurrentConsole(new_console);
+                    }
+                }
+
+                if (Config::GetConfigParameters().preemptive == 1) {
+                    if (sjf_preemptive_scheduler.isValidProcessName(tokens[2]) == false) {
+                        std::cout << "Process with name \"" + tokens[2] + "\" already exists" << std::endl;
+                    }
+                    else {
+                        Process new_process(tokens[2], dist(gen));
+                        sjf_preemptive_scheduler.add_process(&new_process);
+                        system("cls");
+                        new_process.displayProcessInfo();
+                        std::shared_ptr<Console> new_console(new Console(new_process.name, new_process.executed_commands, new_process.total_commands, new_process.process_id));
+                        console_manager.setCurrentConsole(new_console);
+                    }
+                }
+            }
         }
 
         else if (command == "show") {
@@ -154,6 +188,16 @@ int main() {
             if (Config::GetConfigParameters().scheduler == "rr") {
                 rr_scheduler.print_process_details(screen_process_name, 1);
             }
+
+            if (Config::GetConfigParameters().scheduler == "sjf") {
+                if (Config::GetConfigParameters().preemptive == 0) {
+                    sjf_scheduler.print_process_details(screen_process_name, 1);
+                }
+
+                if (Config::GetConfigParameters().preemptive == 1) {
+                    sjf_preemptive_scheduler.print_process_details(screen_process_name, 1);
+                }
+            }
         }
 
         else if (command == "nvidia-smi") {
@@ -175,6 +219,19 @@ int main() {
                 rr_scheduler.SetCpuCore(Config::GetConfigParameters().num_cpu);
                 rr_scheduler.SetQuantum(Config::GetConfigParameters().quantum_cycles);
                 rr_scheduler.start();
+            }
+
+            if (Config::GetConfigParameters().scheduler == "sjf") {
+                if (Config::GetConfigParameters().preemptive == 0) {
+                    sjf_scheduler.SetCpuCore(Config::GetConfigParameters().num_cpu);
+                    sjf_scheduler.start();
+                }
+
+                if (Config::GetConfigParameters().preemptive == 1) {
+
+                    sjf_preemptive_scheduler.SetCpuCore(Config::GetConfigParameters().num_cpu);
+                    sjf_preemptive_scheduler.start();
+                }
             }
         }
 
@@ -213,6 +270,16 @@ int main() {
                             rr_scheduler.add_process(new Process("process" + std::to_string(++process_count), commands_per_process));
                         }
 
+                        if (Config::GetConfigParameters().scheduler == "sjf") {
+                            if ((Config::GetConfigParameters().preemptive == 0)) {
+                                sjf_scheduler.add_process(new Process("process" + std::to_string(++process_count), commands_per_process));
+                            }
+
+                            if ((Config::GetConfigParameters().preemptive == 1)) {
+                                sjf_preemptive_scheduler.add_process(new Process("process" + std::to_string(++process_count), commands_per_process));
+                            }
+                        }
+
 
                         std::this_thread::sleep_for(std::chrono::milliseconds((int)(Config::GetConfigParameters().batch_process_freq * 1000)));
 
@@ -236,6 +303,10 @@ int main() {
             if (Config::GetConfigParameters().scheduler == "rr") {
                 rr_scheduler.screen_ls();
             }
+
+            if (Config::GetConfigParameters().scheduler == "sjf") {
+                sjf_scheduler.screen_ls();
+            }
         }
 
         // "screen -r"
@@ -248,6 +319,10 @@ int main() {
                 if (Config::GetConfigParameters().scheduler == "rr") {
                     rr_scheduler.print_process_details(tokens[2], 0);
                 }
+
+                if (Config::GetConfigParameters().scheduler == "sjf") {
+                    sjf_scheduler.print_process_details(tokens[2], 0);
+                }
             }
             else {
                 if (Config::GetConfigParameters().scheduler == "fcfs") {
@@ -256,6 +331,10 @@ int main() {
 
                 if (Config::GetConfigParameters().scheduler == "rr") {
                     rr_scheduler.print_process_details(tokens[2], 1);
+                }
+
+                if (Config::GetConfigParameters().scheduler == "sjf") {
+                    sjf_scheduler.print_process_details(tokens[2], 1);
                 }
             }
             
@@ -271,6 +350,12 @@ int main() {
 
             if (Config::GetConfigParameters().scheduler == "rr") {
                 rr_scheduler.ReportUtil();
+            }
+
+            if (Config::GetConfigParameters().scheduler == "sjf") {
+                if (Config::GetConfigParameters().preemptive == 0) {
+                    sjf_scheduler.ReportUtil();
+                }
             }
         }
 
