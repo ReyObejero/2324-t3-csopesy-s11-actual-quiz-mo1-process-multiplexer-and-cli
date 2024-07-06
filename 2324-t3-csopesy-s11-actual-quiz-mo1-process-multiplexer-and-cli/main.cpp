@@ -14,6 +14,7 @@
 int main() {
     displayHeader();
     std::string command;
+
     ConsoleManager console_manager;
     bool running = true;
         
