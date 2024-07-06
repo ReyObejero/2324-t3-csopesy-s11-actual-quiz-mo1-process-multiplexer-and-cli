@@ -1,7 +1,7 @@
 num-cpu 4
 scheduler "rr"
 quantum-cycles 5
-preemptive 0
+preemptive 1
 batch-process-freq 0.5
 min-ins 100
 max-ins 200

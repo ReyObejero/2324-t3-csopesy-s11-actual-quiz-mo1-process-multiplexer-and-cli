@@ -61,7 +61,18 @@ void MarqueeConsole::Run() {
                 marquee_worker_thread->Stop();
                 delete marquee_worker_thread;
 
-                console_manager.handleCommand(input_command);
+                system("cls");
+                // Find the console with the name "MAIN_MENU"
+                for (const auto& consolePtr : console_manager.getConsoles()) {
+                    if (consolePtr->getName() == "MAIN_MENU") {
+                        console_manager.setCurrentConsole(consolePtr);
+                        break;
+                    }
+                }
+                // If "MAIN_MENU" console is found, draw its main content
+                if (console_manager.getCurrentConsole() && console_manager.getCurrentConsoleName() == "MAIN_MENU") {
+                    displayHeader();
+                }
             }
             else {
                 UpdateInputLog(input_command);

@@ -26,6 +26,30 @@ void FCFS_Scheduler::start() {
     }
 }
 
+void FCFS_Scheduler::print_CPU_UTIL() {
+    int numOfRunningProcess = 0;
+    int numOfFinishedProcess = 0;
+    int cpuUtilization = 0;
+    for (auto& proc : running_processes) {
+        numOfRunningProcess++;
+    }
+    for (auto& proc : finished_processes) {
+        numOfFinishedProcess++;
+    }
+    if (numOfRunningProcess == num_cores) {
+        cpuUtilization = 100;
+
+    }
+    else if (numOfRunningProcess == 0) {
+        cpuUtilization = 0;
+    }
+    std::cout << "Cpu Utilization: " << cpuUtilization << "%\n";
+    std::cout << "Cores Used: " << numOfRunningProcess << "\n";
+    std::cout << "Cores Available: " << num_cores - numOfRunningProcess << "\n";
+
+    std::cout << "----------------\n";
+}
+
 void FCFS_Scheduler::stop() {
     running = false;
     cv.notify_all();
@@ -106,6 +130,7 @@ void FCFS_Scheduler::print_finished_processes() {
     std::cout << "----------------\n";
 }
 void FCFS_Scheduler::screen_ls() {
+    print_CPU_UTIL();
     print_running_processes();
     print_finished_processes();
 }

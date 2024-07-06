@@ -45,5 +45,7 @@ public:
     void print_process_queue_names();
     void SetCpuCore(int cores);
     bool isValidProcessName(const std::string& process_name);
+    void print_CPU_UTIL();
+    void ReportUtil();
 };
 

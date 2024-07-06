@@ -113,8 +113,84 @@ void SJF_Preemptive_Scheduler::print_finished_processes() {
 }
 
 void SJF_Preemptive_Scheduler::screen_ls() {
+    print_CPU_UTIL();
     print_running_processes();
     print_finished_processes();
+}
+
+void SJF_Preemptive_Scheduler::print_CPU_UTIL() {
+    int numOfRunningProcess = 0;
+    int numOfFinishedProcess = 0;
+    int cpuUtilization = 0;
+    for (auto& proc : running_processes) {
+        numOfRunningProcess++;
+    }
+    for (auto& proc : finished_processes) {
+        numOfFinishedProcess++;
+    }
+    if (numOfRunningProcess == num_cores) {
+        cpuUtilization = 100;
+
+    }
+    else if (numOfRunningProcess == 0) {
+        cpuUtilization = 0;
+    }
+    std::cout << "Cpu Utilization: " << cpuUtilization << "%\n";
+    std::cout << "Cores Used: " << numOfRunningProcess << "\n";
+    std::cout << "Cores Available: " << num_cores - numOfRunningProcess << "\n";
+
+    std::cout << "----------------\n";
+}
+
+
+void SJF_Preemptive_Scheduler::ReportUtil() {
+    std::vector<int> cores_used;
+    int total_executed_commands = 0;
+    int total_commands = 0;
+
+    {
+        std::lock_guard<std::mutex> lock(mtx);
+
+        for (auto& proc : running_processes) {
+            total_executed_commands += proc->executed_commands;
+            total_commands += proc->total_commands;
+
+            if (std::count(cores_used.begin(), cores_used.end(), proc->core_id) == 0) {
+                cores_used.push_back(proc->core_id);
+            }
+        }
+
+        for (auto& proc : finished_processes) {
+            total_executed_commands += proc->executed_commands;
+            total_commands += proc->total_commands;
+        }
+    }
+
+    std::lock_guard<std::mutex> lock(mtx);
+    std::ofstream log("csopesy-log.txt", std::ios::app);
+    log << "CPU Utilization: " << "100" << "%" << std::endl;
+    log << "Cores Used: " << cores_used.size() << std::endl;
+    log << "Cores Available: " << num_cores - cores_used.size() << std::endl;
+    log << "----------------\n";
+    log << "Running processes:\n";
+    for (auto& proc : running_processes) {
+        if (std::count(cores_used.begin(), cores_used.end(), proc->core_id) == 0) {
+            cores_used.push_back(proc->core_id);
+        }
+
+        log << proc->name << " (" << proc->get_start_time() << ") Core: "
+            << (proc->core_id == -1 ? "N/A" : std::to_string(proc->core_id))
+            << " " << proc->executed_commands << " / " << proc->total_commands << "\n";
+    }
+    log << std::endl;
+    log << "Finished processes:\n";
+    for (auto& proc : finished_processes) {
+        log << proc->name << " (" << proc->get_start_time() << ") Finished "
+            << proc->executed_commands << " / " << proc->total_commands << "\n";
+    }
+    log << "----------------\n";
+    log << std::endl;
+    std::cout << "Report generated at /csopesy-log.txt" << std::endl;
 }
 
 void SJF_Preemptive_Scheduler::print_process_details(const std::string& process_name, int screen) {

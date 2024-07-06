@@ -42,4 +42,5 @@ public:
     void SetCpuCore(int cores);
     void ReportUtil();
     bool isValidProcessName(const std::string& process_name);
+    void print_CPU_UTIL();
 };

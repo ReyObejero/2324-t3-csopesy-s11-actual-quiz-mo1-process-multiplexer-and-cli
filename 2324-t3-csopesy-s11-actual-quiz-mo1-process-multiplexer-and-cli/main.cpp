@@ -363,6 +363,10 @@ int main() {
                 if (Config::GetConfigParameters().preemptive == 0) {
                     sjf_scheduler.ReportUtil();
                 }
+
+                if (Config::GetConfigParameters().preemptive == 1) {
+                    sjf_scheduler.ReportUtil();
+                }
             }
         }
 
