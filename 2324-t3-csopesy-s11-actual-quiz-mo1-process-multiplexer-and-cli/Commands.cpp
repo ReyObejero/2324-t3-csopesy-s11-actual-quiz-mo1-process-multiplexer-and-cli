@@ -2,7 +2,6 @@
 #include "Config.h"
 #include "ConsoleManager.h"
 #include "MarqueeConsole.h"
-#include "Scheduler.h"
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
@@ -27,7 +26,7 @@ void clearScreen() {
     displayHeader();
 }
 
-bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
+/*bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
     if (command != "initialize" && command != "exit") {
         if (Config::GetConfigParameters().num_cpu == NULL ||
             Config::GetConfigParameters().scheduler == NULL ||
@@ -202,4 +201,4 @@ bool handleCommand(const std::string& command, ConsoleManager& consoleManager) {
     }
 
     return true;
-}
+}*/

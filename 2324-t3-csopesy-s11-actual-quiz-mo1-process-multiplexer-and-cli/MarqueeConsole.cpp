@@ -29,7 +29,7 @@ void MarqueeConsole::RedrawLog(ConsoleManager& console_manager, int display_wind
     int index = 0;
 
     for (int i = input_log_.size() - 1; i >= 0 ; i--) {
-        console_manager.WriteAtPosition("Command \"" + input_log_[index] + "\" processed in MARQUEE_CONSOLE", 0, display_window_height - pad);
+        console_manager.WriteAtPosition("Command \"" + input_log_[index] + "\" processed in " + console_manager.getCurrentConsoleName(), 0, display_window_height - pad);
 
         index++;
 
@@ -60,6 +60,8 @@ void MarqueeConsole::Run() {
                 running_ = false;
                 marquee_worker_thread->Stop();
                 delete marquee_worker_thread;
+
+                console_manager.handleCommand(input_command);
             }
             else {
                 UpdateInputLog(input_command);
@@ -76,6 +78,4 @@ void MarqueeConsole::Run() {
             input_command += key_pressed;
         }
     }
-
-    system("cls");
 }

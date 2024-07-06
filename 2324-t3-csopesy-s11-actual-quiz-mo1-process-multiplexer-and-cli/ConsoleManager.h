@@ -8,9 +8,9 @@
 
 class ConsoleManager {
 private:
-    std::shared_ptr<Console> currentConsole;
-    std::shared_ptr<Console> previousConsole;
-    std::vector<std::shared_ptr<Console>> consoles;
+    static std::shared_ptr<Console> currentConsole;
+    static std::shared_ptr<Console> previousConsole;
+    static std::vector<std::shared_ptr<Console>> consoles;
     HANDLE console_handle_;
     CONSOLE_SCREEN_BUFFER_INFO csbi_info_;
 
@@ -22,7 +22,7 @@ public:
     void drawAllConsoles();
     std::vector<std::shared_ptr<Console>> getConsoles();
     std::shared_ptr<Console> getCurrentConsole();
-    std::string getCurrentConsoleName() const;
+    static std::string getCurrentConsoleName();
     void setCurrentConsole(std::shared_ptr<Console> console);
     COORD GetCursorPosition();
     SMALL_RECT GetDisplayWindowBounds();
@@ -30,4 +30,5 @@ public:
     void PollKeyboard(char& key_pressed);
     void SetCursorPosition(int pos_x, int pos_y);
     void WriteAtPosition(const std::string& text, int pos_x, int pos_y);
+    bool handleCommand(const std::string& command);
 };

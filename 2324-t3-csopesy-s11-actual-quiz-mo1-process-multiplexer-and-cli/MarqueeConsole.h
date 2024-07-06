@@ -1,8 +1,8 @@
+#include "ConsoleManager.h"
 #include <string>
 #include <vector>
 #include <atomic>
 
-class ConsoleManager;
 
 class MarqueeConsole {
 public:

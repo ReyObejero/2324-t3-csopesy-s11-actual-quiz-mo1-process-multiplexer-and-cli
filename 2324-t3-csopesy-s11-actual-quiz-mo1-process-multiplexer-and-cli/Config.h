@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Scheduler.h"
+#include <string>
 
 class Config {
 public:
 	struct ConfigParameters {
 		int num_cpu;
-		Scheduler::SchedulingAlgorithm scheduler;
+		std::string scheduler;
 		int quantum_cycles;
 		int preemptive;
 		double batch_process_freq;

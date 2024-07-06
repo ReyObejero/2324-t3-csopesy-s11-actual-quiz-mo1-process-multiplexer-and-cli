@@ -33,13 +33,19 @@
     <ClCompile Include="MarqueeWorkerThread.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scheduler.cpp">
+    <ClCompile Include="FCFSScheduler.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Config.h">
       <Filter>Headers</Filter>
     </ClCompile>
     <ClCompile Include="Config.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RRScheduler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sjf_scheduler.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +71,13 @@
     <ClInclude Include="MarqueeWorkerThread.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Scheduler.h">
+    <ClInclude Include="FCFSScheduler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RRScheduler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="sjf_scheduler.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

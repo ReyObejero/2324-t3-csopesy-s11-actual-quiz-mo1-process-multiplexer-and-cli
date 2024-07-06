@@ -5,4 +5,4 @@
 // Function prototypes
 void displayHeader();
 void clearScreen();
-bool handleCommand(const std::string& command, ConsoleManager& consoleManager);
+// bool handleCommand(const std::string& command, ConsoleManager& consoleManager);

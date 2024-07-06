@@ -1,0 +1,243 @@
+CPU Utilization: -nan(ind)%
+Cores Used: 0
+Cores Available: 0
+----------------
+Running processes:
+
+Finished processes:
+----------------
+
+CPU Utilization: 13.1537%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 33 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 24 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 16 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 10 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 23.4548%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 46 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 37 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 37 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 28 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 27.2583%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 52 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 38 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 43 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 39 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 31.2203%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 60 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 42 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 48 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 47 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 35.1823%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 67 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 51 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 52 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 52 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 39.6197%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 76 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 54 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 59 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 61 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 41.9968%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 78 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 57 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 68 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 62 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 46.9097%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 88 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 64 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 75 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 69 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 49.6038%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 89 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 71 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 79 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 74 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 51.664%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 94 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 73 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 82 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 77 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 55.1506%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 99 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 78 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 89 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 82 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 57.5277%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 104 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 82 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 92 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 85 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 60.8558%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 108 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 86 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 98 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 92 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 65.2932%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 115 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 93 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 107 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 97 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 70.8399%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 121 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 103 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 115 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 108 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 76.5452%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process1 (07/06/2024 07:41:07PM) Core: 2 140 / 200
+process2 (07/06/2024 07:41:07PM) Core: 0 109 / 149
+process3 (07/06/2024 07:41:08PM) Core: 1 117 / 118
+process4 (07/06/2024 07:41:08PM) Core: 3 117 / 164
+
+Finished processes:
+----------------
+
+CPU Utilization: 26.1383%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process10 (07/06/2024 08:00:32PM) Core: 1 10 / 142
+process9 (07/06/2024 08:00:32PM) Core: 0 15 / 177
+process3 (07/06/2024 08:00:32PM) Core: 2 60 / 105
+process2 (07/06/2024 08:00:32PM) Core: 3 70 / 169
+
+Finished processes:
+----------------
+
+CPU Utilization: 100%
+Cores Used: 4
+Cores Available: 0
+----------------
+Running processes:
+process5 (07/06/2024 08:02:05PM) Core: 3 35 / 101
+process7 (07/06/2024 08:02:05PM) Core: 0 20 / 191
+process4 (07/06/2024 08:02:05PM) Core: 2 45 / 128
+process1 (07/06/2024 08:02:05PM) Core: 1 70 / 152
+
+Finished processes:
+----------------
+
