@@ -306,7 +306,13 @@ int main() {
             }
 
             if (Config::GetConfigParameters().scheduler == "sjf") {
-                sjf_scheduler.screen_ls();
+                if (Config::GetConfigParameters().preemptive == 0) {
+                    sjf_scheduler.screen_ls();
+                }
+
+                if (Config::GetConfigParameters().preemptive == 1) {
+                    sjf_preemptive_scheduler.screen_ls();
+                }
             }
         }
 

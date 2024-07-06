@@ -63,7 +63,7 @@ void SJF_Preemptive_Scheduler::cpu_worker(int core_id) {
             {
                 std::lock_guard<std::mutex> lock(mtx);
                 proc->executed_commands += exec_dist(gen); // Execute for a random time slice
-                proc->displayProcessInfo();
+              
                 if (proc->executed_commands > proc->total_commands) {
                     proc->executed_commands = proc->total_commands; // Ensure we don't exceed total_commands
                 }
