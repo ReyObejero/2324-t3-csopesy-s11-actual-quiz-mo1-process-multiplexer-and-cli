@@ -69,7 +69,7 @@ void RR_Scheduler::cpu_worker(int core_id) {
               
             }
 
-            std::this_thread::sleep_for(std::chrono::milliseconds((int)(Config::GetConfigParameters().delay_per_exec * 100))); // Simulated command execution time change this to delays per exec
+            std::this_thread::sleep_for(std::chrono::milliseconds((int)(Config::GetConfigParameters().delay_per_exec * 1000))); // Simulated command execution time change this to delays per exec
            // commands_to_execute-=5;
 
             if (executed_in_quantum >= time_quantum) {
